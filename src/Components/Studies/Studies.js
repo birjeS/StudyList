@@ -1,6 +1,6 @@
 import './Studies.css'
 import StudyItem from "./StudyItem";
-import Card from "./Card";
+import Card from "../UI/Card";
 
 function Studies(props) {
     return (

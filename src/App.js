@@ -1,6 +1,6 @@
 import './App.css';
 
-import StudyItem from "./Components/StudyItem";
+import StudyItem from "./Components/Studies/StudyItem";
 const App = () => {
     const study = [
         {
@@ -15,9 +15,8 @@ const App = () => {
         }
 ]
   return  (
-      <div>
+      <div className="App">
         <StudyItem StudyData={study[0]}></StudyItem>
-          <StudyItem StudyData={study[1]}></StudyItem>
       </div>
   );
 }
