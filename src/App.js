@@ -16,8 +16,8 @@ const App = () => {
 ]
   return  (
       <div>
-        <StudyItem StudyData={studies[0]}></StudyItem>
-          <StudyItem StudyData={studies[1]}></StudyItem>
+        <StudyItem StudyData={study[0]}></StudyItem>
+          <StudyItem StudyData={study[1]}></StudyItem>
       </div>
   );
 }
