@@ -4,7 +4,7 @@ import './StudiesList.css'
 
 const StudiesList = (props) => {
     if (props.filteredStudies.length === 0) {
-        return <p className="estudies-list__fallback">No Studies Found.</p>
+        return <p className="studies-list__fallback">No Studies Found.</p>
     }
 
     return (

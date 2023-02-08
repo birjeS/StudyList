@@ -22,7 +22,7 @@ const StudyForm = (props) => {
         event.preventDefault()
         const StudyData = {
             title: enteredTitle,
-            importance: enteredImportance,
+            Importance: enteredImportance,
             date: new Date(enteredDate)
     }
 
@@ -30,18 +30,17 @@ const StudyForm = (props) => {
         setEnteredTitle('')
         setEnteredImportance('')
         setEnteredDate('')
-        console.log(StudyData)
-        setEnteredTitle('')
+
 }
     return(
         <form onSubmit={submitHandler}>
             <div className="new-study__control input">
-                <div className="new-study__controls">
+                <div className="new-study__control">
                     <label>Title</label>
                     <input type="text"
                     onChange={titleChangeHandler} value={enteredTitle} />
                 </div>
-                <div className="new-study__controls">
+                <div className="new-study__control">
                     <label>Importance</label>
                     <select onChange={ImportanceChangeHandler}>
                         <option value="low">Low</option>
@@ -49,13 +48,13 @@ const StudyForm = (props) => {
                         <option value="High">High</option>
                     </select>
                 </div>
-                <div className="new-study__controls">
+                <div className="new-study__control">
                     <label>Date</label>
-                    <input type = "date" min="2022-01-01" max="2025-12-31" onChange={DateChangeHandler}/>
+                    <input type = "date" min="2022-01-01" max="2025-12-31" onChange={DateChangeHandler} value={enteredDate}/>
                 </div>
             </div>
-            <div>
-                <button type = "submit">Add Study</button>
+            <div className="new-study__actions">
+                <button type = " submit">Add Study</button>
             </div>
         </form>
     )
