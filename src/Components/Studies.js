@@ -1,7 +1,7 @@
 import './Studies.css'
-import StudyItem from "./StudyItem";
 import Card from "./UI/Card";
 import StudiesFilter from "./Studies/StudiesFilter";
+import StudiesList from "./Studies/StudiesList";
 import React, {useState} from "react";
 
 
@@ -17,24 +17,21 @@ const Studies = (props) => {
         setFilteredYear(year)
     }
 
+    const filteredStudies = props.studies.filter(
+        (studies) => {
+            return studies.date.getFullYear().toString() ===
+                filteredYear
+        }
+    )
 
     return (
         <Card className="studies">
             <StudiesFilter selected ={filteredYear}
             onChangeFilter = {filterChangeHandler
             }></StudiesFilter>
-            {
-                props.studies.map((studies) => {
-                return <StudyItem
-                    id={studies.id}
-                    title={studies.title}
-                    importance = {studies.importance}
-                    date={studies.date}
-                ></StudyItem>
-                })
-            }
-        </Card>
-    )
+            <StudiesList filteredStudies={filteredStudies}></StudiesList>
+        </Card>)
+
 }
 
 export default Studies
