@@ -1,8 +1,10 @@
 import './App.css';
 
-import StudyItem from "./Components/Studies/StudyItem";
+import Studies from "./Components/Studies/Studies";
+import NewStudy from "./NewStudy/NewStudy";
+
 const App = () => {
-    const study = [
+    const studies = [
         {
         date: new Date (2023, 1, 26),
         titl: 'Järelevastamine',
@@ -14,9 +16,15 @@ const App = () => {
             list: 'High'
         }
 ]
+
+const addStudyhandler = (study) => {
+        console.log('In App.js')
+        console.log(study)
+}
   return  (
       <div className="App">
-        <StudyItem StudyData={study[0]}></StudyItem>
+          <NewStudy onAddStudy={addStudyhandler()}></NewStudy>
+        <Studies studies ={studies}></Studies>
       </div>
   );
 }
