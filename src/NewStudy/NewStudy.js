@@ -5,7 +5,7 @@ import './NewStudy.css'
 const NewStudy = (props) => {
     const saveStudyDatahandler = (enteredStudyData) => {
         const StudyData = {
-            ... enteredStudyData,
+            ...enteredStudyData,
             id: Math.random().toString()
         }
         props.onAddStudy(StudyData)

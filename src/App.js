@@ -1,30 +1,36 @@
 import './App.css';
+import React, {useState} from "react";
 
-import Studies from "./Components/Studies/Studies";
+import Studies from "./Components/Studies";
 import NewStudy from "./NewStudy/NewStudy";
 
-const App = () => {
-    const studies = [
+const DUMMY_STUDIES = [
         {
+            id: 'test1',
         date: new Date (2023, 1, 26),
-        titl: 'Järelevastamine',
-        list: 'Medium'
+        title: 'Järelevastamine',
+        importance: 'Medium'
     },
         {
+            id: 'test2',
             date: new Date (2023, 1, 10),
-            titl: 'Kodutöö',
-            list: 'High'
+            title: 'Kodutöö',
+            importance: 'High'
         }
 ]
-
-const addStudyhandler = (study) => {
+const App = () => {
+    const [studies, setStudies] = useState(DUMMY_STUDIES)
+const addStudyhandler = (studies) => {
         console.log('In App.js')
-        console.log(study)
-}
+        setStudies((previousStudies) => {
+            return [studies, ...previousStudies]
+        })
+    }
+console.log(studies)
   return  (
       <div className="App">
-          <NewStudy onAddStudy={addStudyhandler()}></NewStudy>
-        <Studies studies ={studies}></Studies>
+          <NewStudy onAddStudy={addStudyhandler}></NewStudy>
+        <Studies studies ={DUMMY_STUDIES}></Studies>
       </div>
   );
 }
